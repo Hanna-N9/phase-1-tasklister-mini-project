@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let form = document.querySelector("form")
-  form.addEventListener("submit", (e) => {
+  let form = document.querySelector("form");
+  form.addEventListener("submit", e => {
     e.preventDefault();
-    handleToDo(e.target.newtaskdescription.value)
-    form.reset() //empty form
-
+    handleToDo(e.target.newtaskdescription.value);
+    form.reset(); //empty form
   });
 });
 
@@ -14,13 +13,12 @@ function handleToDo(todo) {
   document.querySelector("#tasks").appendChild(li);
 
   let btn = document.createElement("button");
-  button.textContent = "x"
-  li.appendChild(btn)
-  btn.addEventListener("click", handleDelete)
-  
+  btn.className = "delete-btn";
+  btn.textContent = "x";
+  li.appendChild(btn);
+  btn.addEventListener("click", handleDelete);
+}
 
-} 
-
-function handleDelete(e){
-  e.target.parentNode.remove()
+function handleDelete(e) {
+  e.target.parentNode.remove();
 }
