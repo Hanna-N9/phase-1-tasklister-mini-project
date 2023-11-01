@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", e => {
     e.preventDefault();
 
-    handleToDo(e.target.querySelector("#new-task-description").value);
+    handleToDo(e.target["new-task-description"].value);
 
     e.target.reset(); //empty form
   });
