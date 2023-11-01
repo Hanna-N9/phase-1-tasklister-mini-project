@@ -1,21 +1,28 @@
+//Global variables
+const form = document.querySelector("#create-task-form");
+const ul = document.querySelector("#tasks");
+
 document.addEventListener("DOMContentLoaded", () => {
-  let form = document.querySelector("form");
   form.addEventListener("submit", e => {
     e.preventDefault();
-    handleToDo(e.target.newtaskdescription.value);
-    form.reset(); //empty form
+
+    handleToDo(e.target.querySelector("#new-task-description").value);
+
+    e.target.reset(); //empty form
   });
 });
 
 function handleToDo(todo) {
-  let li = document.createElement("li"); //returns new a Node
+  //Create list and append it to ul to add task
+  let li = document.createElement("li");
   li.textContent = `${todo} `;
-  document.querySelector("#tasks").appendChild(li);
+  ul.append(li);
 
-  let btn = document.createElement("button");
+  //Create button and append it to list to remove task
+  const btn = document.createElement("button");
   btn.className = "delete-btn";
   btn.textContent = "x";
-  li.appendChild(btn);
+  li.append(btn);
   btn.addEventListener("click", handleDelete);
 }
 
